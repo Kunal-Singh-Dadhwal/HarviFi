@@ -1,0 +1,23 @@
+.transc{
+    position: fixed;
+    bottom: 20px;
+    right: 10px;
+}
+.transb{
+    background-color: black;
+    color: white;
+    
+
+}
+.transb:hover{
+    background-color: white;
+    color: black;
+}
+.aj{
+    border-radius: 5px;
+}
+.ajaj{
+    border-radius: 5px;
+    height: 5vh;
+    min-width: 15vh;
+}

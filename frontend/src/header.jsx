@@ -4,6 +4,7 @@ import TokenizeForm from './TokenizeForm';
 import { connectWallet } from "./utils/wallet";
 import { Link } from 'react-router-dom';
 import InvestorPage from "./investors";
+import WebsiteTranslator from "./websitetranslater";
 
 function Header() {
     const [isPopupOpen, setIsPopupOpen] = useState(false);
@@ -59,6 +60,7 @@ function Header() {
                         "Connect Wallet"}
                     </button>
                 </div>
+
             </div>
 
             {isPopupOpen && (
