@@ -18,7 +18,7 @@ const TokenizeForm = () => {
         const response = await fetch("https://api.pinata.cloud/pinning/pinFileToIPFS", {
             method: "POST",
             headers: {
-                Authorization: `Bearer <Your_Pinata_JWT>`,
+                Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySW5mb3JtYXRpb24iOnsiaWQiOiIxOGU4Y2ZjZS03YzdhLTQ0YzctOWUwZi00YjY2MDJlYjA3ZDMiLCJlbWFpbCI6Im1pdHJhcHJhbmphbDIwMDRAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsInBpbl9wb2xpY3kiOnsicmVnaW9ucyI6W3siZGVzaXJlZFJlcGxpY2F0aW9uQ291bnQiOjEsImlkIjoiRlJBMSJ9LHsiZGVzaXJlZFJlcGxpY2F0aW9uQ291bnQiOjEsImlkIjoiTllDMSJ9XSwidmVyc2lvbiI6MX0sIm1mYV9lbmFibGVkIjpmYWxzZSwic3RhdHVzIjoiQUNUSVZFIn0sImF1dGhlbnRpY2F0aW9uVHlwZSI6InNjb3BlZEtleSIsInNjb3BlZEtleUtleSI6ImVkYmM4MGM4YjdiZGUwMTBmNmU4Iiwic2NvcGVkS2V5U2VjcmV0IjoiNjgyZGYyNjNjNDliNzRlMTI0YmE2ZWQyMzI5YTZlMDdhZmRkODE0MWZhZTA4NGRkZDAxMzRmNzRmYjM2YjY5NCIsImV4cCI6MTc2ODA2MTk0Nn0.xaJ8M-VzA6LUJM-Cz8QTCflHR8YrXsrCrIR-4vXfHdg`,
             },
             body: formData,
         });
@@ -40,8 +40,8 @@ const TokenizeForm = () => {
 
             const web3 = new Web3(window.ethereum);
             const accounts = await web3.eth.requestAccounts();
-            const contractAddress = "<Your_Contract_Address>";
-            const agriToken = new web3.eth.Contract(AgriTokenABI, contractAddress);
+            const contractAddress = "0x5fbdb2315678afecb367f032d93f642f64180aa3";
+            const agriToken = new web3.eth.Contract(AgriTokenABI.abi, contractAddress);
 
             // Upload image to IPFS
             const imageCID = await uploadToIPFS(image);
@@ -64,7 +64,7 @@ const TokenizeForm = () => {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
-                    Authorization: `Bearer <Your_Pinata_JWT>`,
+                    Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySW5mb3JtYXRpb24iOnsiaWQiOiIxOGU4Y2ZjZS03YzdhLTQ0YzctOWUwZi00YjY2MDJlYjA3ZDMiLCJlbWFpbCI6Im1pdHJhcHJhbmphbDIwMDRAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsInBpbl9wb2xpY3kiOnsicmVnaW9ucyI6W3siZGVzaXJlZFJlcGxpY2F0aW9uQ291bnQiOjEsImlkIjoiRlJBMSJ9LHsiZGVzaXJlZFJlcGxpY2F0aW9uQ291bnQiOjEsImlkIjoiTllDMSJ9XSwidmVyc2lvbiI6MX0sIm1mYV9lbmFibGVkIjpmYWxzZSwic3RhdHVzIjoiQUNUSVZFIn0sImF1dGhlbnRpY2F0aW9uVHlwZSI6InNjb3BlZEtleSIsInNjb3BlZEtleUtleSI6ImVkYmM4MGM4YjdiZGUwMTBmNmU4Iiwic2NvcGVkS2V5U2VjcmV0IjoiNjgyZGYyNjNjNDliNzRlMTI0YmE2ZWQyMzI5YTZlMDdhZmRkODE0MWZhZTA4NGRkZDAxMzRmNzRmYjM2YjY5NCIsImV4cCI6MTc2ODA2MTk0Nn0.xaJ8M-VzA6LUJM-Cz8QTCflHR8YrXsrCrIR-4vXfHdg`,
                 },
                 body: JSON.stringify(metadata),
             });

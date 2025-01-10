@@ -10,7 +10,7 @@ contract Lock is ERC721URIStorage, Ownable {
     using Counters for Counters.Counter;
     Counters.Counter private _tokenIds;
     
-    constructor() ERC721("Agricultural Harvest Token", "AHT") Ownable(msg.sender) {}
+    constructor(address initialOwner) ERC721("Agricultural Harvest Token", "AHT") Ownable(initialOwner) {}
     struct Harvest {
         string produceType;
         uint256 quantity;
