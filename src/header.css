@@ -1,0 +1,52 @@
+
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* This is commented out in your code */
+    padding: 5px 50px 5px 30px;
+    /* Remove height: 13vh unless you specifically need it */
+    
+    /* Option 1: Keep it normal flow */
+    /* position: static; or remove position property entirely */
+    
+    gap: 10px;
+    
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin-top: 10px;
+   
+
+}
+button {
+    border: none;
+    background: none;
+    font-size: 20px;
+    margin: 0 25px;
+    padding: 10px 15px;
+    border-radius: 8px;
+}
+button:hover {
+    background-color: rgba(255, 255, 255, 0.59);
+    cursor: pointer;
+
+}
+#login, #signup {
+    background-color: black;
+    color: white;
+    border: 1px solid black;
+}
+#login:hover{
+    cursor: pointer;
+    color: black;
+    background-color: rgba(255, 255, 255, 0.59);
+
+
+}
+/* #signup {
+    background-color: black;
+    color: white;
+} */
+
