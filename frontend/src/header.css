@@ -44,6 +44,15 @@ button:hover {
 
 
 }
+/* Add to your header.css */
+#login.connected {
+    background-color: #4CAF50; /* or any color you prefer */
+    color: white;
+}
+
+#login {
+    min-width: 140px; /* To prevent button size changes when showing address */
+}
 /* #signup {
     background-color: black;
     color: white;
