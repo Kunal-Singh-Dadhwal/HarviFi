@@ -47,3 +47,39 @@ This platform tokenizes future agricultural produce as NFTs, enabling farmers to
    ```bash
    git clone https://github.com/your-repo/tokenized-agricultural-financing.git
    cd tokenized-agricultural-financing
+### File Structure
+tokenized-agricultural-financing/
+├── backend/
+│   ├── app.js
+│   ├── database.js
+│   ├── controllers/
+│   │   ├── farmerController.js
+│   │   ├── tokenController.js
+│   ├── models/
+│   │   ├── farmerModel.js
+│   │   ├── tokenModel.js
+│   ├── routes/
+│   │   ├── farmerRoutes.js
+│   │   ├── tokenRoutes.js
+│   ├── utils/
+│       ├── ipfs.js
+├── frontend/
+│   ├── public/
+│   │   ├── index.html
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── FarmerForm.js
+│   │   │   ├── TokenList.js
+│   │   ├── utils/
+│   │       ├── walletConnect.js
+│   │   ├── App.js
+│   │   ├── index.js
+├── smart_contracts/
+│   ├── contracts/
+│   │   ├── TokenizedProduce.sol
+│   ├── migrations/
+│   │   ├── 1_deploy_contract.js
+│   ├── truffle-config.js
+│   ├── package.json
+├── .env
+├── README.md
