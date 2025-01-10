@@ -5,10 +5,10 @@ import './TokenizeForm.css';
 
 const TokenizeForm = () => {
     const [produceType, setProduceType] = useState("");
-    const [quantity, setQuantity] = useState(0);
+    const [quantity, setQuantity] = useState("");
     const [expectedDeliveryDate, setExpectedDeliveryDate] = useState("");
     const [pricePerUnit, setPricePerUnit] = useState(0);
-    const [image, setImage] = useState(null);
+    const [image, setImage] = useState(false);
     const [loading, setLoading] = useState(false);
 
     const uploadToIPFS = async (file) => {
@@ -74,7 +74,7 @@ const TokenizeForm = () => {
 
             // Interact with the smart contract
             await agriToken.methods
-                .tokenizeHarvest(produceType, quantity, new Date(expectedDeliveryDate).getTime(), pricePerUnit, metadataURI)
+                .tokenizeHarvest(produceType, quantity, expectedDeliveryDate, pricePerUnit, metadataURI)
                 .send({ from: accounts[0] });
 
             alert("Harvest tokenized successfully!");
@@ -103,18 +103,18 @@ const TokenizeForm = () => {
                 <div>
                     <label>Quantity:</label>
                     <input
-                        type="number"
+                        type="text"
                         value={quantity}
-                        onChange={(e) => setQuantity(Number(e.target.value))}
+                        onChange={(e) => setQuantity(String(e.target.value))}
                         required
                     />
                 </div>
                 <div>
                     <label>Expected Delivery Date:</label>
                     <input
-                        type="date"
+                        type="text"
                         value={expectedDeliveryDate}
-                        onChange={(e) => setExpectedDeliveryDate(e.target.value)}
+                        onChange={(e) => setExpectedDeliveryDate(String(e.target.value))}
                         required
                     />
                 </div>

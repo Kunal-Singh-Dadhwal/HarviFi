@@ -44,18 +44,53 @@ const InvestorPage = () => {
       
       {/* PowerBI Dashboard */}
       <div className="mb-12">
-        <iframe
-          title="Defy'25_Harvifi"
-          width="1000"
-          height="541.25"
-          className="w-full rounded-lg shadow-lg"
-          src="https://app.powerbi.com/reportEmbed?reportId=ed990e8e-d7d6-48b1-95ca-30c7ef32a709&autoAuth=true&ctid=d4963ce2-af94-4122-95a9-644e8b01624d"
-          frameBorder="0"
-          allowFullScreen={true}
-        />
-        {/* <iframe title="Defy_25_HARVIFY_NFT_ANALYSIS" width="1140" height="541.25" src="https://app.powerbi.com/reportEmbed?reportId=7c957786-8ebd-4c13-a03e-bb3a7c10382e&autoAuth=true&ctid=d4963ce2-af94-4122-95a9-644e8b01624d" frameborder="0" allowFullScreen="true"></iframe> */}
-
-      </div>
+      <div className="test-container">
+    <div className='test'>
+      <iframe
+        title="Defy'25_Harvifi"
+        width="1000"
+        height="541.25"
+        marginTop = "100"
+        margin
+        src="https://app.powerbi.com/reportEmbed?reportId=ed990e8e-d7d6-48b1-95ca-30c7ef32a709&autoAuth=true&ctid=d4963ce2-af94-4122-95a9-644e8b01624d"
+        frameBorder="0"
+        allowFullScreen = "true"
+      ></iframe>
+      <iframe
+        title="Defy'25_Harvifi"
+        width="1000"
+        height="541.25"
+        marginTop = "100"
+        margin
+        src="https://app.powerbi.com/reportEmbed?reportId=ed990e8e-d7d6-48b1-95ca-30c7ef32a709&autoAuth=true&ctid=d4963ce2-af94-4122-95a9-644e8b01624d"
+        frameBorder="0"
+        allowFullScreen = "true"
+      ></iframe>
+    </div>
+    <div className="test">
+      <iframe
+        title="Defy'25_Harvifi"
+        width="1000"
+        height="541.25"
+        marginTop = "100"
+        margin
+        src="https://app.powerbi.com/reportEmbed?reportId=ed990e8e-d7d6-48b1-95ca-30c7ef32a709&autoAuth=true&ctid=d4963ce2-af94-4122-95a9-644e8b01624d"
+        frameBorder="0"
+        allowFullScreen = "true"
+      ></iframe>
+      <iframe
+        title="Defy'25_Harvifi"
+        width="1000"
+        height="541.25"
+        marginTop = "100"
+        margin
+        src="https://app.powerbi.com/reportEmbed?reportId=ed990e8e-d7d6-48b1-95ca-30c7ef32a709&autoAuth=true&ctid=d4963ce2-af94-4122-95a9-644e8b01624d"
+        frameBorder="0"
+        allowFullScreen = "true"
+      ></iframe>
+    </div>
+    </div>
+    </div>
 
       {/* Available Harvests Section */}
       <div>
