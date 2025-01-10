@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Web3 from "web3";
-// import AgriTokenABI from "../abi/AgriToken.json";
+import AgriTokenABI from "./abi/AgriToken.json";
 import './TokenizeForm.css';
 
 const TokenizeForm = () => {
