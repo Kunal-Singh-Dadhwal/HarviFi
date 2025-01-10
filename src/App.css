@@ -6,12 +6,13 @@ body {
   background: linear-gradient(135deg, #ffe5c4, #f5f7fa); /* Gradient colors */
   overflow-x: hidden;
   position: relative;
+  z-index: -2;
 }
 .circle {
   position: absolute;
   border-radius: 50%;
   opacity: 0.2;
-  z-index: 1;
+  z-index: -1;
 }
 .circle1 {
   width: 300px;
@@ -24,14 +25,14 @@ body {
   width: 400px;
   height: 400px;
   background: #bde0fe;
-  top: 1%;
+  top: 10%;
   right: 10%;
 }
 .circle3 {
   width: 200px;
   height: 200px;
   background: #a2d2ff;
-  top: 10%;
+  top: -10%;
   left: 50%;
   transform: translateX(-50%);
 }

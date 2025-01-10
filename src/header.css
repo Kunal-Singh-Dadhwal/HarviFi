@@ -5,10 +5,7 @@
     justify-content: space-between;
     align-items: center; /* This is commented out in your code */
     padding: 5px 50px 5px 30px;
-    /* Remove height: 13vh unless you specifically need it */
-    
-    /* Option 1: Keep it normal flow */
-    /* position: static; or remove position property entirely */
+    height: 13vh;
     
     gap: 10px;
     
@@ -17,16 +14,18 @@
     left: 0;
     right: 0;
     margin-top: 10px;
+    color: black;
    
 
 }
 button {
     border: none;
     background: none;
-    font-size: 20px;
+    font-size: 18px;
     margin: 0 25px;
     padding: 10px 15px;
     border-radius: 8px;
+    color: black;
 }
 button:hover {
     background-color: rgba(255, 255, 255, 0.59);
