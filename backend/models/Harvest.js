@@ -1,24 +1,16 @@
-const express = require("express");
-const cors = require("cors");
-const sequelize = require("./config/database");
-const harvestRoutes = require("./routes/harvestRoutes");
+const { DataTypes } = require("sequelize");
+const sequelize = require("../config/database");
 
-const app = express();
-const PORT = 5000;
-
-// Middleware
-app.use(cors());
-app.use(express.json());
-
-// Sync Database
-sequelize.sync({ force: false }).then(() => {
-    console.log("Database connected and tables synced.");
+const Harvest = sequelize.define("Harvest", {
+    tokenId: { type: DataTypes.INTEGER, allowNull: false, unique: true },
+    produceType: { type: DataTypes.STRING, allowNull: false },
+    quantity: { type: DataTypes.FLOAT, allowNull: false },
+    expectedDeliveryDate: { type: DataTypes.DATE, allowNull: false },
+    pricePerUnit: { type: DataTypes.FLOAT, allowNull: false },
+    farmerAddress: { type: DataTypes.STRING, allowNull: false },
+    buyerAddress: { type: DataTypes.STRING },
+    metadataURI: { type: DataTypes.STRING, allowNull: false },
+    isDelivered: { type: DataTypes.BOOLEAN, defaultValue: false },
 });
 
-// Routes
-app.use("/api", harvestRoutes);
-
-// Start Server
-app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
-});
+module.exports = Harvest;
