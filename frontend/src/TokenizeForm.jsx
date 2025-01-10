@@ -7,7 +7,7 @@ const TokenizeForm = () => {
     const [produceType, setProduceType] = useState("");
     const [quantity, setQuantity] = useState("");
     const [expectedDeliveryDate, setExpectedDeliveryDate] = useState("");
-    const [pricePerUnit, setPricePerUnit] = useState(0);
+    const [pricePerUnit, setPricePerUnit] = useState("");
     const [image, setImage] = useState(false);
     const [loading, setLoading] = useState(false);
 
@@ -121,9 +121,9 @@ const TokenizeForm = () => {
                 <div>
                     <label>Price Per Unit (in ETH):</label>
                     <input
-                        type="number"
+                        type="text"
                         value={pricePerUnit}
-                        onChange={(e) => setPricePerUnit(Number(e.target.value))}
+                        onChange={(e) => setPricePerUnit(String(e.target.value))}
                         required
                     />
                 </div>

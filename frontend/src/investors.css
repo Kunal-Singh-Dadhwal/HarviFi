@@ -1,32 +1,64 @@
-body{
-    background: linear-gradient(135deg, #ffe5c4, #f5f7fa);
+/* General body styling */
+/* Dark mode styling for body */
+@media (prefers-color-scheme: dark) {
+    body {
+        background: linear-gradient(135deg, #2e2e2e, #1a1a1a); /* Darker gradient for dark mode */
+        color: black; /* Light text color for dark mode */
+    }
 }
-.test{
+
+/* Styling for test class */
+.test {
     display: flex;
     justify-content: center;
-    padding: 20px;
-    width: 100vw;
-    /* max-width: 1200px; */
-    /* margin-top: 20px; */
-    /* margin-left: 100px; */
-    margin: 0;
     padding: 10px;
+    width: 100vw;
+    margin: 0;
 }
-.iframe-wrapper {
 
+/* Styling for iframe wrapper */
+.iframe-wrapper {
     width: 1000px;
     height: 400px;
     border: 1px solid #ddd;
     border-radius: 8px;
     overflow: hidden;
-    margin-right: 40px; 
+    margin-right: 40px;
 }
+
+/* Styling for iframe */
 iframe {
-    /* margin-top: 10px; */
-    width: 1000px;
+    width: 100%;
     border: none;
     z-index: 2;
 }
+
+/* Styling for test container */
 .test-container {
     margin-top: 8vw;
+}
+
+/* Input field styling */
+input {
+    padding: 10px;
+    border: none;
+    border-radius: 50px;
+    font-size: 16px;
+    width: 90%;
+    margin-bottom: 10px;
+    box-shadow: inset 2px 5px 10px rgba(210, 209, 209, 0.808);
+    background-color: #fff; /* Default background for light mode */
+    color: #333; /* Default text color for light mode */
+}
+
+/* Dark mode input styling */
+@media (prefers-color-scheme: dark) {
+    .test{
+        color: black;
+    }
+    input {
+        background-color: #fff; /* Dark background for dark mode */
+        color: #000; /* Light text color for dark mode */
+        box-shadow: inset 2px 5px 10px rgba(0, 0, 0, 0.5); /* Slightly darker shadow for dark mode */
+    }
 }
