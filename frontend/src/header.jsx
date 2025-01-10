@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import './header.css';
-import { useState, useEffect } from "react";
+import TokenizeForm from './TokenizeForm'; // Import the TokenizeForm component
 import { connectWallet } from "./utils/wallet";
 
 function Header() {
@@ -17,7 +17,6 @@ function Header() {
             
             if (walletSigner) {
                 const address = await walletSigner.getAddress();
-                // Truncate the address for display
                 const truncatedAddress = address.slice(0, 6) + "..." + address.slice(-4);
                 setWalletAddress(truncatedAddress);
                 console.log("Connected wallet address:", address);
@@ -29,26 +28,43 @@ function Header() {
         }
     };
 
+    const handlePopupOpen = () => {
+        setIsPopupOpen(true);
+    };
+
+    const handlePopupClose = () => {
+        setIsPopupOpen(false);
+    };
+
     return (
         <>
             <div className="header">
-                <img src="./public/logo.png" alt="logo" height="100%"/>
+                <img src="./public/logo.png" alt="logo" height="100%" />
                 <div className="nav">
                     <button>Explore</button>|
-                    <button>Farmer</button>|
+                    <button onClick={handlePopupOpen}>Farmer</button>|
                     <button>Investors</button>|
-                    <button>Create</button>
+                    
                     <button 
                         id="login"
                         onClick={handleConnect}
                         disabled={loading}
                     >
                         {loading ? "Connecting..." : 
-                         walletAddress ? walletAddress : 
-                         "Connect Wallet"}
+                        walletAddress ? walletAddress : 
+                        "Connect Wallet"}
                     </button>
                 </div>
             </div>
+
+            {isPopupOpen && (
+                <div className="modal">
+                    <div className="modal-content">
+                        <span className="close" onClick={handlePopupClose}>&times;</span>
+                        <TokenizeForm />
+                    </div>
+                </div>
+            )}
         </>
     );
 }

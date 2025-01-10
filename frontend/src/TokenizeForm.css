@@ -1,0 +1,99 @@
+/* Modal styling */
+.modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    padding: 20px;
+    border: 1px solid #888;
+    border-radius: 10px;
+    width: 400px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Close button styling */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Payment form styling */
+/* .payment-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+} */
+
+input {
+    padding: 10px;
+    border: none;
+    border-radius: 50px;
+    font-size: 16px;
+    width: 90%;
+    margin-bottom: 10px;
+    box-shadow: inset 2px 5px 10px rgba(210, 209, 209, 0.808);
+
+}
+
+input[type="text"],
+input[type="number"] {
+    width: 90%;
+    margin-bottom: 10px;
+    border-radius: 50px;
+    box-shadow: inset 2px 5px 10px rgba(210, 209, 209, 0.808);
+}
+
+/* Expiry and CVV input styling */
+/* .payment-form .expiry-cvv {
+    display: flex;
+    gap: 10px;
+} */
+
+input {
+    flex: 1;
+}
+
+/* Button styling */
+.payment-form button {
+    padding: 15px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.payment-form button:hover {
+    background-color: #333;
+}
+.th{
+    padding: 15px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    text-align: center;
+    margin-left: 100px;
+    margin-top: 10px;
+    
+}
+.th:hover{
+    background-color: #333;
+}

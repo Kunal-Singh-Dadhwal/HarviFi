@@ -21,6 +21,7 @@ function App() {
         <Route path="/popup" element={<Popup />} />
       </Routes>
     </BrowserRouter> */}
+    
     </>
   )
 }
