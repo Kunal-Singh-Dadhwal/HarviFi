@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import './header.css';
-import TokenizeForm from './TokenizeForm'; // Import the TokenizeForm component
+import TokenizeForm from './TokenizeForm';
 import { connectWallet } from "./utils/wallet";
+import { Link } from 'react-router-dom';
+import InvestorPage from "./investors";
 
 function Header() {
     const [isPopupOpen, setIsPopupOpen] = useState(false);
@@ -43,12 +45,14 @@ function Header() {
                 <div className="nav">
                     <button>Explore</button>|
                     <button onClick={handlePopupOpen}>Farmer</button>|
-                    <button>Investors</button>|
-                    
+                    <Link to="/investor">
+                        <button style={{ padding: '10px 20px', fontSize: '16px' }}>Investor</button>
+                    </Link>|
                     <button 
                         id="login"
                         onClick={handleConnect}
                         disabled={loading}
+                        className="wallet-button"
                     >
                         {loading ? "Connecting..." : 
                         walletAddress ? walletAddress : 

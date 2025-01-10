@@ -1,3 +1,7 @@
+:root{
+  background: linear-gradient(135deg, #ffe5c4, #f5f7fa);
+  z-index: 2;
+}
 body {
   margin: 0;
   padding: 0;
@@ -5,7 +9,7 @@ body {
   background: linear-gradient(135deg, #ffe5c4, #f5f7fa);
   overflow-x: hidden;
   position: relative;
-  z-index: -2;
+  z-index: 2;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 

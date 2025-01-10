@@ -1,0 +1,27 @@
+body{
+    background: linear-gradient(135deg, #ffe5c4, #f5f7fa);
+}
+.test{
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    width: 100%;
+    max-width: 1200px;
+    margin-top: 20px;
+    margin-left: 100px;
+    padding: 10px;
+}
+.iframe-wrapper {
+
+    width: 1000px;
+    height: 400px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-right: 40px; 
+}
+iframe {
+    margin-top: 10px;
+    width: 1000px;
+    border: none;
+}
