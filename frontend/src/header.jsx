@@ -8,8 +8,8 @@ function Header() {
                 <img src="./public/logo.png" alt="logo" height="100%"/>
                 <div className="nav">
                     <button>Explore</button>|
-                    <button>Stats</button>|
-                    <button>Resources</button>|
+                    <button>Farmer</button>|
+                    <button>Investor</button>|
                     <button>Create</button>
                     <button id="login">Connect Wallet</button>
                 </div>

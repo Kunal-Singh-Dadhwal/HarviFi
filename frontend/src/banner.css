@@ -1,0 +1,16 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 170px;
+    margin-left: 230px;
+}
+.banner-img {
+    width: 300px;
+    border-radius: 8px;
+}
+h2 {
+    color: black;
+    width: 550px;
+    font-size: 20pt;
+}
