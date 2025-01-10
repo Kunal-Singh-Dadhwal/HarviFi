@@ -48,6 +48,7 @@ This platform tokenizes future agricultural produce as NFTs, enabling farmers to
    git clone https://github.com/your-repo/tokenized-agricultural-financing.git
    cd tokenized-agricultural-financing
 ### File Structure
+```
 tokenized-agricultural-financing/
 ├── backend/
 │   ├── app.js
@@ -83,3 +84,5 @@ tokenized-agricultural-financing/
 │   ├── package.json
 ├── .env
 ├── README.md
+
+```
