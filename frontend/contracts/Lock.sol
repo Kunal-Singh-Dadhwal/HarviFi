@@ -79,4 +79,18 @@ contract Lock is ERC721URIStorage, Ownable {
         harvests[tokenId].isDelivered = true;
         emit HarvestDelivered(tokenId);
     }
+    function getAvailableTokens() public view returns (Harvest[] memory) {
+        uint256 totalTokens = _tokenIds.current();
+        Harvest[] memory availableTokens = new Harvest[](totalTokens);
+        uint256 index = 0;
+
+        for (uint256 i = 1; i <= totalTokens; i++) {
+            if (harvests[i].isDelivered == false) {
+                availableTokens[index] = harvests[i];
+                index++;
+            }
+        }
+
+        return availableTokens;
+    }
 }
