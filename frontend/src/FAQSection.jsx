@@ -48,6 +48,13 @@ const FAQSection = () => {
   };
 
   return (
+    <>
+      {/* <br /><br />
+      <br /><br />
+      <br /><br />
+      <br /><br />
+      <br /><br />
+      <br /><br /><br /><br /><br /> <br /><br /><br /><br /><br /><br /><br /> */}
     <div className="faq-section">
       <h2>Frequently Asked Questions</h2>
       <div className="faq-list">
@@ -67,6 +74,8 @@ const FAQSection = () => {
         ))}
       </div>
     </div>
+    
+    </>
   );
 };
 

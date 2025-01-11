@@ -1,53 +1,45 @@
 /* General body styling */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #fafafa, #eaeaea); /* Light gradient for default mode */
+    color: #333; /* Default text color */
+}
+
 /* Dark mode styling for body */
 @media (prefers-color-scheme: dark) {
     body {
         background: linear-gradient(135deg, #2e2e2e, #1a1a1a); /* Darker gradient for dark mode */
-        color: black; /* Light text color for dark mode */
+        color: white; /* Light text color for dark mode */
     }
 }
-.token-card{
-    background-color: white;
-    border-radius: 5px;
-    color: black;
-    z-index: 1000;
-}
 
-/* Styling for test class */
+/* Styling for .test class */
 .test {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap; /* Allows wrapping if needed */
+    gap: 20px; /* Consistent gap between elements */
     padding: 10px;
-    width: 100vw;
-    margin: 0;
-}
-
-/* Styling for iframe wrapper */
-.iframe-wrapper {
-    width: 1000px;
-    height: 400px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    overflow: hidden;
-    margin-right: 40px;
+    margin: 0 auto;
+    max-width: 100%;
 }
 
 /* Styling for iframe */
 iframe {
-    width: 100%;
+    flex: 1 1 45%; /* Flexibly grow, shrink, and occupy 45% of the container */
+    height: 400px;
     border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     z-index: 2;
-}
-
-/* Styling for test container */
-.test-container {
-    margin-top: 8vw;
 }
 
 /* Input field styling */
 input {
     padding: 10px;
-    border: none;
+    border: 1px solid #ccc;
     border-radius: 50px;
     font-size: 16px;
     width: 90%;
@@ -59,12 +51,69 @@ input {
 
 /* Dark mode input styling */
 @media (prefers-color-scheme: dark) {
-    .test{
-        color: black;
-    }
     input {
-        background-color: #fff; /* Dark background for dark mode */
-        color: #000; /* Light text color for dark mode */
+        background-color: #444; /* Dark background for dark mode */
+        color: #fff; /* Light text color for dark mode */
         box-shadow: inset 2px 5px 10px rgba(0, 0, 0, 0.5); /* Slightly darker shadow for dark mode */
     }
+}
+
+/* Styling for .container */
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Styling for .tokens-list */
+.tokens-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid layout */
+    gap: 20px;
+    padding: 20px;
+    margin-top: 200px;
+    margin-right: 130px;
+}
+
+/* Styling for .token-card */
+.token-card {
+    width: 100%;
+    min-width: 550px;
+    max-width: 600px;
+    max-height: 350px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 20px;
+    color: #333;
+}
+
+@media (prefers-color-scheme: dark) {
+    .token-card {
+        background: rgba(50, 50, 50, 0.5);
+        color: #fff;
+    }
+}
+
+/* Styling for .dashboard-section */
+.dashboard-section {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    margin-bottom: 50px;
+    gap: 20px;
+}
+
+.dashboard-container {
+    width: 100%;
+    padding: 20px;
 }

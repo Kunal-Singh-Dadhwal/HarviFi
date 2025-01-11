@@ -29,10 +29,6 @@ contract Lock is ERC721URIStorage, Ownable {
     event HarvestDelivered(uint256 tokenId);
     
     
-    function addFarmer(address farmer) external onlyOwner {
-        verifiedFarmers[farmer] = true;
-    }
-    
     function tokenizeHarvest(
         string memory produceType,
         uint256 quantity,
@@ -40,7 +36,6 @@ contract Lock is ERC721URIStorage, Ownable {
         uint256 pricePerUnit,
         string memory tokenURI
     ) external returns (uint256) {
-        require(verifiedFarmers[msg.sender], "Only verified farmers can tokenize harvest");
         
         _tokenIds.increment();
         uint256 newTokenId = _tokenIds.current();

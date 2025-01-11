@@ -1,9 +1,11 @@
 .faq-section {
+  top: 500px;
   width: 100%;
   max-width: 800px;
   margin: 40px auto;
-  margin-top: 170px;
+  margin-top: 400px;
   padding: 0 20px;
+  z-index: 2;
 }
 
 .faq-section h2 {

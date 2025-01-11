@@ -1,32 +1,35 @@
 import { ethers } from "ethers";
 import AgriTokenABI from "../abi/AgriToken.json";
 
-const CONTRACT_ADDRESS = "0x5fbdb2315678afecb367f032d93f642f64180aa3";
+const CONTRACT_ADDRESS = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
 
-const getAvailableTokens = async () => {
+export const getAvailableTokens = async () => {
   try {
     console.log("Starting token fetch process...");
-    
+
     if (typeof window.ethereum === "undefined") {
       throw new Error("MetaMask or another Web3 provider is not installed.");
     }
 
-    const provider = new ethers.BrowserProvider(window.ethereum);
     console.log("Provider initialized");
-    
+    const provider = new ethers.JsonRpcProvider("http://localhost:8545");
+    const contract = new ethers.Contract(
+      CONTRACT_ADDRESS,
+      AgriTokenABI.abi,
+      provider
+    );
+    console.log("Contract instance created");
+
     try {
-      await provider.send("eth_requestAccounts", []);
+      // await provider.send("eth_requestAccounts", []);
       console.log("Wallet connection successful");
     } catch (error) {
       console.error("Wallet connection failed:", error);
       throw new Error("User denied account access");
     }
-    
+
     const signer = await provider.getSigner();
     console.log("Signer obtained:", await signer.getAddress());
-    
-    const contract = new ethers.Contract(CONTRACT_ADDRESS, AgriTokenABI.abi, signer);
-    console.log("Contract instance created");
 
     // First, let's check if the contract address is correct
     const name = await contract.name();
@@ -46,14 +49,16 @@ const getAvailableTokens = async () => {
     console.log("Transfer events found:", events.length);
 
     if (events.length === 0) {
-        // Try getting token balance of connected address
-        const userAddress = await signer.getAddress();
-        const balance = await contract.balanceOf(userAddress);
-        console.log("Connected address token balance:", balance.toString());
+      // Try getting token balance of connected address
+      const userAddress = await signer.getAddress();
+      const balance = await contract.balanceOf(userAddress);
+      console.log("Connected address token balance:", balance.toString());
     }
 
     // Extract unique token IDs from transfer events
-    const tokenIds = [...new Set(events.map(event => event.args[2].toString()))];
+    const tokenIds = [
+      ...new Set(events.map((event) => event.args[2].toString())),
+    ];
     console.log("Unique token IDs found:", tokenIds);
 
     if (!tokenIds || tokenIds.length === 0) {
@@ -67,13 +72,13 @@ const getAvailableTokens = async () => {
           // Check if token exists
           const owner = await contract.ownerOf(id);
           console.log(`Token ${id} owner:`, owner);
-          
+
           // Get harvest details
           const harvest = await contract.harvests(id);
           console.log(`Token ${id} harvest details:`, harvest);
-          
+
           const uri = await contract.tokenURI(id);
-          
+
           return {
             id: id,
             uri,
@@ -84,7 +89,7 @@ const getAvailableTokens = async () => {
             pricePerUnit: ethers.formatEther(harvest.pricePerUnit),
             isDelivered: harvest.isDelivered,
             farmer: harvest.farmer,
-            buyer: harvest.buyer
+            buyer: harvest.buyer,
           };
         } catch (error) {
           console.error(`Error fetching details for token ${id}:`, error);
@@ -93,15 +98,12 @@ const getAvailableTokens = async () => {
       })
     );
 
-    const validTokens = tokenDetails.filter(token => token !== null);
+    const validTokens = tokenDetails.filter((token) => token !== null);
     console.log("Final valid tokens:", validTokens);
 
     return validTokens;
-
   } catch (error) {
     console.error("Error in getAvailableTokens:", error);
     throw error;
   }
 };
-
-export default getAvailableTokens;
