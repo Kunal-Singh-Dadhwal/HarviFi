@@ -243,16 +243,16 @@ const WebsiteTranslator = () => {
           {loading ? 'Translating...' : `Translate to ${LANGUAGES[selectedLanguage]}`}
         </button>
 
-        {loading && progress > 0 && (
+        {/* {loading && progress > 0 && (
           <div className="w-full bg-gray-200 rounded-full h-2.5">
             <div 
               className="bg-blue-600 h-2.5 rounded-full transition-all duration-300"
               style={{ width: `${progress}%` }}
             ></div>
           </div>
-        )}
+        )} */}
 
-        {status && (
+        {/* {status && (
           <div className="text-sm text-gray-600">
             {status}
           </div>
@@ -262,7 +262,7 @@ const WebsiteTranslator = () => {
           <div className="text-sm text-red-500">
             Error: {error}
           </div>
-        )}
+        )} */}
       </div>
     </div>
   );

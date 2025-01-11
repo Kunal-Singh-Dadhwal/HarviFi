@@ -8,7 +8,7 @@ const TokenizeForm = () => {
     const [quantity, setQuantity] = useState("");
     const [expectedDeliveryDate, setExpectedDeliveryDate] = useState("");
     const [pricePerUnit, setPricePerUnit] = useState("");
-    const [image, setImage] = useState(false);
+    const [image, setImage] = useState(null);
     const [loading, setLoading] = useState(false);
 
     const uploadToIPFS = async (file) => {
@@ -18,7 +18,7 @@ const TokenizeForm = () => {
         const response = await fetch("https://api.pinata.cloud/pinning/pinFileToIPFS", {
             method: "POST",
             headers: {
-                Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySW5mb3JtYXRpb24iOnsiaWQiOiIxOGU4Y2ZjZS03YzdhLTQ0YzctOWUwZi00YjY2MDJlYjA3ZDMiLCJlbWFpbCI6Im1pdHJhcHJhbmphbDIwMDRAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsInBpbl9wb2xpY3kiOnsicmVnaW9ucyI6W3siZGVzaXJlZFJlcGxpY2F0aW9uQ291bnQiOjEsImlkIjoiRlJBMSJ9LHsiZGVzaXJlZFJlcGxpY2F0aW9uQ291bnQiOjEsImlkIjoiTllDMSJ9XSwidmVyc2lvbiI6MX0sIm1mYV9lbmFibGVkIjpmYWxzZSwic3RhdHVzIjoiQUNUSVZFIn0sImF1dGhlbnRpY2F0aW9uVHlwZSI6InNjb3BlZEtleSIsInNjb3BlZEtleUtleSI6ImVkYmM4MGM4YjdiZGUwMTBmNmU4Iiwic2NvcGVkS2V5U2VjcmV0IjoiNjgyZGYyNjNjNDliNzRlMTI0YmE2ZWQyMzI5YTZlMDdhZmRkODE0MWZhZTA4NGRkZDAxMzRmNzRmYjM2YjY5NCIsImV4cCI6MTc2ODA2MTk0Nn0.xaJ8M-VzA6LUJM-Cz8QTCflHR8YrXsrCrIR-4vXfHdg`,
+                Authorization: `Bearer <Your-Pinata-API-JWT>`, // Replace with your actual JWT token
             },
             body: formData,
         });
@@ -40,6 +40,8 @@ const TokenizeForm = () => {
 
             const web3 = new Web3(window.ethereum);
             const accounts = await web3.eth.requestAccounts();
+
+            // Define contractAddress here
             const contractAddress = "0x5fbdb2315678afecb367f032d93f642f64180aa3";
             const agriToken = new web3.eth.Contract(AgriTokenABI.abi, contractAddress);
 
@@ -64,7 +66,7 @@ const TokenizeForm = () => {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
-                    Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySW5mb3JtYXRpb24iOnsiaWQiOiIxOGU4Y2ZjZS03YzdhLTQ0YzctOWUwZi00YjY2MDJlYjA3ZDMiLCJlbWFpbCI6Im1pdHJhcHJhbmphbDIwMDRAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsInBpbl9wb2xpY3kiOnsicmVnaW9ucyI6W3siZGVzaXJlZFJlcGxpY2F0aW9uQ291bnQiOjEsImlkIjoiRlJBMSJ9LHsiZGVzaXJlZFJlcGxpY2F0aW9uQ291bnQiOjEsImlkIjoiTllDMSJ9XSwidmVyc2lvbiI6MX0sIm1mYV9lbmFibGVkIjpmYWxzZSwic3RhdHVzIjoiQUNUSVZFIn0sImF1dGhlbnRpY2F0aW9uVHlwZSI6InNjb3BlZEtleSIsInNjb3BlZEtleUtleSI6ImVkYmM4MGM4YjdiZGUwMTBmNmU4Iiwic2NvcGVkS2V5U2VjcmV0IjoiNjgyZGYyNjNjNDliNzRlMTI0YmE2ZWQyMzI5YTZlMDdhZmRkODE0MWZhZTA4NGRkZDAxMzRmNzRmYjM2YjY5NCIsImV4cCI6MTc2ODA2MTk0Nn0.xaJ8M-VzA6LUJM-Cz8QTCflHR8YrXsrCrIR-4vXfHdg`,
+                    Authorization: `Bearer <Your-Pinata-API-JWT>`, // Replace with your actual JWT token
                 },
                 body: JSON.stringify(metadata),
             });
@@ -99,7 +101,6 @@ const TokenizeForm = () => {
                         required
                     />
                 </div>
-                <br />
                 <div>
                     <label>Quantity:</label>
                     <input
@@ -135,7 +136,7 @@ const TokenizeForm = () => {
                         required
                     />
                 </div>
-                <button className="th" type="submit" disabled={loading}>
+                <button type="submit" disabled={loading}>
                     {loading ? "Tokenizing..." : "Tokenize Harvest"}
                 </button>
             </form>

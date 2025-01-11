@@ -6,6 +6,12 @@
         color: black; /* Light text color for dark mode */
     }
 }
+.token-card{
+    background-color: white;
+    border-radius: 5px;
+    color: black;
+    z-index: 1000;
+}
 
 /* Styling for test class */
 .test {

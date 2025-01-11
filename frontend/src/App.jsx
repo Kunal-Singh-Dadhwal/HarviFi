@@ -4,7 +4,7 @@ import InvestorPage from './investors';
 import Banner from './banner';
 import './App.css'
 import WebsiteTranslator from './websitetranslater';
-import FAQPopup from './FAQPopup';
+import FAQSection from './FAQSection';
 const translate = () =>
 {
 
@@ -19,11 +19,12 @@ function App() {
                 <div className="circle circle1"></div>
                 <div className="circle circle2"></div>
                 <div className="circle circle3"></div>
-                <FAQPopup></FAQPopup>
+
                 <Routes>
                     <Route path="/" element={<Banner />} />
                     <Route path="/investor" element={<InvestorPage />} />
                 </Routes>
+                <FAQSection></FAQSection>
 
                 
             </>
